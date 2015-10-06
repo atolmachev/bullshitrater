@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{form @Application.rate(), enctype :'multipart/form-data'}
+<input type="file" name="jar" onchange="document.forms[0].submit()">
+#{/form}
+
+<ul>
+#{list ratings, as: 'r'}
+    <li>${r.bullshitIndex}: ${r.jarName} starring ${r.longestClassName}</li>
+#{/list}
+#{else}
+    <li>
+      &{'No jars yet'}
+    </li>
+#{/else}
+</ul>
